@@ -1,16 +1,27 @@
-<html >
+<html>
 <head>
     <title>Mathys</title>
+    <style>
+        html, body {
+            height: 100%; 
+            margin: 0;    
+        }
+        .container {
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            height: 100%;
+            width: 100%;
+        }
+        #greeting {
+            font-size: 24px; 
+            font-family: Arial, sans-serif;
+        }
+    </style>
 </head>
 <body>
-      
-    <h1><p>mathys-x</p></h1>
-        
-
-    <ul>
-        <li>👋 Hi, I’m @mathys-x</li>
-        <li>🌱 I’m currently learning Rust</li>
-        <!-- <li>📫 How to reach me </li> -->
-    </ul>
+    <div class="container">
+        <p id="greeting">👋 Hi, I’m Mathys</p>
+    </div>
 </body>
 </html>
