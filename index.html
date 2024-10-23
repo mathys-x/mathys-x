@@ -1,27 +1,33 @@
+<!doctype html>
 <html>
 <head>
-    <title>Mathys</title>
-    <style>
-        html, body {
-            height: 100%; 
-            margin: 0;    
-        }
-        .container {
-            display: flex;
-            justify-content: center; 
-            align-items: center;
-            height: 100%;
-            width: 100%;
-        }
-        #greeting {
-            font-size: 24px; 
-            font-family: Arial, sans-serif;
-        }
-    </style>
+  <meta charset="utf-8"/>
+  <title>Odoo 18 Web Frontend Course</title>
 </head>
 <body>
-    <div class="container">
-        <p id="greeting">👋 Hi, I’m Mathys</p>
-    </div>
+  <div id="content"></div>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    // Function to load and display markdown file content
+    async function loadMarkdown() {
+      try {
+        // Fetch the markdown file
+        const response = await fetch('1_introduction.md');
+        if (!response.ok) {
+          throw new Error('Failed to load markdown file');
+        }
+        const markdownText = await response.text();
+
+        // Render the markdown content to HTML using marked.js
+        document.getElementById('content').innerHTML = marked.parse(markdownText);
+      } catch (error) {
+        console.error('Error loading markdown:', error);
+        document.getElementById('content').innerHTML = '<p>Error loading content.</p>';
+      }
+    }
+
+    // Load the markdown file when the page is loaded
+    window.onload = loadMarkdown;
+  </script>
 </body>
 </html>
